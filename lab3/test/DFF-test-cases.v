@@ -82,7 +82,7 @@ task test_case_2_exhaustive();
   //    clk d  q
   check( 0, 0, 'x, t.outputs_undefined );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   //    clk d  q
   check( 1, 0, 'x );
@@ -90,7 +90,7 @@ task test_case_2_exhaustive();
   check( 0, 0, 'x );
   check( 0, 1, 'x );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   //    clk d  q
   check( 1, 0, 'x );
@@ -99,7 +99,7 @@ task test_case_2_exhaustive();
   check( 0, 1, 'x );
   check( 0, 0, 'x );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   //    clk d  q
   check( 1, 0, 'x );

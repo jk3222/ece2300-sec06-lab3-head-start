@@ -77,7 +77,7 @@ task test_case_2_directed_reset();
   //    clk rs en d  q
   check( 0, 1, 1, 0, 'x, t.outputs_undefined );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   //    clk rs en d  q
   check( 1, 1, 0, 0, 'x ); // every en,d when clk=1, rst=1
@@ -91,7 +91,7 @@ task test_case_2_directed_reset();
   check( 0, 1, 1, 0, 'x );
   check( 0, 1, 1, 1, 'x );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   //    clk rs en d  q
   check( 1, 0, 0, 0, 'x );
@@ -115,7 +115,7 @@ task test_case_3_directed_en1();
   //    clk rs en d  q
   check( 0, 1, 0, 0, 'x, t.outputs_undefined );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   //    clk rs en d  q
   check( 1, 0, 1, 0, 'x );
@@ -123,7 +123,7 @@ task test_case_3_directed_en1();
   check( 0, 0, 1, 0, 'x );
   check( 0, 0, 1, 1, 'x );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   //    clk rs en d  q
   check( 1, 0, 1, 0, 'x );
@@ -132,7 +132,7 @@ task test_case_3_directed_en1();
   check( 0, 0, 1, 1, 'x );
   check( 0, 0, 1, 0, 'x );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   check( 1, 0, 1, 0, 'x );
 
@@ -155,7 +155,7 @@ task test_case_4_directed_en0();
   //    clk rs en d  q
   check( 0, 1, 0, 0, 'x, t.outputs_undefined );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   //    clk rs en d  q
   check( 1, 0, 0, 0, 'x );
@@ -163,7 +163,7 @@ task test_case_4_directed_en0();
   check( 0, 0, 0, 0, 'x );
   check( 0, 0, 0, 1, 'x );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   //    clk rs en d  q
   check( 1, 0, 0, 0, 'x );
@@ -172,7 +172,7 @@ task test_case_4_directed_en0();
   check( 0, 0, 0, 1, 'x );
   check( 0, 0, 0, 0, 'x );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   check( 1, 0, 0, 0, 'x );
 

@@ -74,7 +74,7 @@ task test_case_2_directed_reset();
   //    clk rs d  q
   check( 0, 1, 0, 'x, t.outputs_undefined );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   //    clk rs d  q
   check( 1, 1, 0, 'x );
@@ -82,11 +82,12 @@ task test_case_2_directed_reset();
   check( 0, 1, 0, 'x );
   check( 0, 1, 1, 'x );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   //    clk rs d  q
   check( 1, 0, 0, 'x );
 
+  t.test_case_end();
 endtask
 
 //------------------------------------------------------------------------
@@ -105,7 +106,7 @@ task test_case_3_directed();
   //    clk rs d  q
   check( 0, 1, 0, 'x, t.outputs_undefined );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   //    clk rs d  q
   check( 1, 0, 0, 'x );
@@ -113,7 +114,7 @@ task test_case_3_directed();
   check( 0, 0, 0, 'x );
   check( 0, 0, 1, 'x );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   //    clk rs d  q
   check( 1, 0, 0, 'x );
@@ -122,10 +123,11 @@ task test_case_3_directed();
   check( 0, 0, 1, 'x );
   check( 0, 0, 0, 'x );
 
-  // ---- rising clock edge here ---
+  // ---- rising clock edge here ----
 
   check( 1, 0, 0, 'x ); // return to original state
 
+  t.test_case_end();
 endtask
 
 //------------------------------------------------------------------------

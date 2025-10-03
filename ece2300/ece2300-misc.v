@@ -63,11 +63,26 @@
 //------------------------------------------------------------------------
 // ECE2300_XPROP
 //------------------------------------------------------------------------
+// This macro enables forcing a signal to be 'x to avoid X-optimism in
+// combinational logic. You can use it in an always_comb block like this:
+//
+//  always_comb begin
+//
+//    a = 'x;
+//
+//    if ( b )
+//      a = c;
+//
+//    `ECE2300_XPROP( a, $isunknown(b) );
+//
+//  end
+//
 
 `ifndef ALTERA_RESERVED_QIS
 `define ECE2300_XPROP( signal_, expression_ ) \
   if ( expression_ ) \
-    signal_ = 'x;
+    signal_ = 'x; \
+  if (0)
 `else
 `define ECE2300_XPROP( signal_, expression_ ) \
   if (0)
@@ -76,11 +91,26 @@
 //------------------------------------------------------------------------
 // ECE2300_SEQ_XPROP
 //------------------------------------------------------------------------
+// This macro enables forcing a signal to be 'x to avoid X-optimism in
+// combinational logic. You can use it in an always_comb block like this:
+//
+//  always_ff @( posedge clk ) begin
+//
+//    if ( rst )
+//      q <= 1'b0;
+//    else
+//      q <= d;
+//
+//    `ECE2300_SEQ_XPROP( q, $isunknown(rst) );
+//
+//  end
+//
 
 `ifndef ALTERA_RESERVED_QIS
 `define ECE2300_SEQ_XPROP( signal_, expression_ ) \
   if ( expression_ ) \
-    signal_ <= 'x;
+    signal_ <= 'x; \
+  if (0)
 `else
 `define ECE2300_SEQ_XPROP( signal_, expression_ ) \
   if (0)
