@@ -104,16 +104,16 @@ module Top();
     // that check.
 
     //    clk d  q
-    check( 0, 0, 'x, t.outputs_undefined );
-    check( 1, 0, 'x ); // d=0, latch is transparent
-    check( 1, 1, 'x ); // d=1, latch is transparent
-    check( 0, 0, 'x ); // d=0, latch is opaque
-    check( 0, 1, 'x ); // d=1, latch is opaque
-    check( 1, 0, 'x ); // d=0, latch is transparent
-    check( 1, 0, 'x ); // d=0, latch is transparent
-    check( 0, 0, 'x ); // d=0, latch is opaque
-    check( 0, 1, 'x ); // d=1, latch is opaque
-    check( 1, 0, 'x ); // return to original state
+    check( 0, 0, 'x, t.outputs_undefined ); // We do not know what this output will be. Is a real xprop case
+    check( 1, 0, 0 ); // d=0, latch is transparent (set latch to zero)
+    check( 1, 1, 1 ); // d=1, latch is transparent (set latch to one)
+    check( 0, 0, 1 ); // d=0, latch is opaque (testing when the d_latch stores 1)
+    check( 0, 1, 1 ); // d=1, latch is opaque (testing when the d_latch stores 1)
+    check( 1, 1, 1 ); // d=0, latch is transparent (set latch to zero)
+    check( 1, 0, 0 ); // d=0, latch is transparent (set latch to zero)
+    check( 0, 0, 0 ); // d=0, latch is opaque (testing when the d_latch stores 0)
+    check( 0, 1, 0 ); // d=1, latch is opaque (testing when the d_latch stores 0)
+    check( 1, 0, 0 ); // return to original state
 
     t.test_case_end();
   endtask

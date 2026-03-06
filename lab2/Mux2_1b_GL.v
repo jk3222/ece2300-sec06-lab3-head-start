@@ -15,16 +15,16 @@ module Mux2_1b_GL
   (* keep=1 *) output out
 );
 
-  //''' LAB ASSIGNMENT '''''''''''''''''''''''''''''''''''''''''''''''''''
-  // Implement 1-bit 2-to-1 mux using gate-level modeling
-  //>'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+  // internal wires for selecting the correct input based on sel
+  wire w0, w1, n_sel;
 
-  // remove these lines before starting your implementation
-  `ECE2300_UNUSED( in0 );
-  `ECE2300_UNUSED( in1 );
-  `ECE2300_UNUSED( sel );
-  `ECE2300_UNDRIVEN( out );
-
+  // gates to select the input based on sel
+  not( n_sel, sel );
+  and( w1, n_sel, in0 );
+  and( w0, sel, in1 );
+  or( out, w1, w0 );
+  
 endmodule
 
 `endif /* MUX2_1B_GL */
+

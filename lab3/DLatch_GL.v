@@ -20,9 +20,15 @@ module DLatch_GL
   // Implement a D Latch using explicit gate-level modeling
   //>'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-  `ECE2300_UNUSED( clk );
-  `ECE2300_UNUSED( d );
-  `ECE2300_UNDRIVEN( q );
+  wire s, r, w;
+  wire d_n;
+  not (d_n, d);
+
+  and (s, d, clk);
+  and (r, d_n, clk);
+  nor  (q, r, w);
+  nor  (w, s, q);
+
 
 endmodule
 
